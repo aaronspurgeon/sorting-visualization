@@ -26,7 +26,7 @@ function App() {
   ]);
 
   return <div className="App">
-    <div className="container" style={{ display: 'flex', flexFlow: 'row' }}>
+    <div className="container" style={{ display: 'flex', flexFlow: 'row', textAlign: 'center' }}>
       {graph.map((item) => (
         <div style={{ textAlign: 'center' }} key={item.key}>{item.value}</div>
       ))}
