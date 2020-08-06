@@ -8,17 +8,18 @@ function App() {
     let resultArray = [], leftIndex = 0, rightIndex = 0;
 
     while (leftIndex < left.length && rightIndex < right.length) {
+      console.log(`left index: ${left[leftIndex]}`)
+      console.log(`right index: ${right[rightIndex]}`)
+
       if (left[leftIndex] < right[rightIndex]) {
-        console.log(`left index: ${left[leftIndex]}`)
+
         resultArray.push(left[leftIndex]);
         leftIndex++;
       } else {
-        console.log(`right index: ${right[rightIndex]}`)
         resultArray.push(right[rightIndex]);
         rightIndex++;
       }
     }
-
 
     return resultArray
       .concat(left.slice(leftIndex))
@@ -34,20 +35,21 @@ function App() {
     const left = unsortedArray.slice(0, middle);
     const right = unsortedArray.slice(middle);
 
+    setGraph(left + right)
     return merge(
       mergeSort(left), mergeSort(right)
     );
   }
 
   const handleClick = () => {
-    mergeSort(graph)
+    console.log(mergeSort(graph))
   }
 
   return <div className="App">
     <button onClick={handleClick}>Start visual</button>
     <div className="container" style={{ display: 'flex', flexFlow: 'row', justifyContent: 'center' }}>
       {graph.map((item, index) => (
-        <div style={{ width: 20, height: item, backgroundColor: '#87CEFA', border: '1px solid black' }} key={index} />
+        <div style={{ width: 20, height: item, backgroundColor: '#87CEFA', margin: '0 2px 2px 2px' }} key={index} />
       ))}
     </div>
 
